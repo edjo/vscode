@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import ConnectionForm from './connect-form/connection-form';
 import HelpPanel from './help-panel/help-panel';
+import OverviewPage from './overview-page/overview-page';
 import {
   ActionTypes,
   ConnectionEventOccuredAction,
@@ -56,8 +57,9 @@ class App extends React.Component<props> {
   render(): React.ReactNode {
     return (
       <div className={classnames(styles.page, styles.connect)}>
-        <ConnectionForm />
-        <HelpPanel />
+        {/* <ConnectionForm />
+        <HelpPanel /> */}
+        <OverviewPage />
       </div>
     );
   }
