@@ -1,5 +1,5 @@
 import * as React from 'react';
-import Toggle from '@leafygreen-ui/toggle';
+// import Toggle from '@leafygreen-ui/toggle';
 import { connect } from 'react-redux';
 
 import {
@@ -113,7 +113,7 @@ class Kerberos extends React.Component<props> {
   render(): React.ReactNode {
     const {
       isValid,
-      kerberosCanonicalizeHostname,
+      // kerberosCanonicalizeHostname,
       kerberosPassword,
       kerberosPrincipal,
       kerberosServiceName
@@ -150,7 +150,7 @@ class Kerberos extends React.Component<props> {
               <span>Canonicalize Host Name</span>
             </label>
           </div>
-          <Toggle
+          {/* <Toggle
             className={styles['form-toggle']}
             name="kerberosCanonicalizeHostname"
             onChange={this.onCnameToggle}
@@ -158,7 +158,7 @@ class Kerberos extends React.Component<props> {
             size="small"
             variant="default"
             disabled={false}
-          />
+          /> */}
         </div>
       </div>
     );

@@ -1,11 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-
 import { ActionTypes, LinkClickedAction } from '../../store/actions';
-import OverviewHeader from './overview-header';
-import ConnectHelper from '../connect-helper/connect-helper';
-import ConnectionStatus from '../connection-status/connection-status';
-import HelpPanel from '../help-panel/help-panel';
 
 const styles = require('../../connect.module.less');
 
@@ -15,7 +10,7 @@ type dispatchProps = {
 
 type props = dispatchProps;
 
-class Overview extends React.Component<props> {
+class OverviewHeader extends React.Component<props> {
   onLinkClicked = (screen: string, linkId: string): void => {
     this.props.onLinkClicked(screen, linkId);
   };
@@ -23,11 +18,12 @@ class Overview extends React.Component<props> {
   render(): React.ReactNode {
     return (
       <div className={styles.overview}>
-        <OverviewHeader />
-        <ConnectionStatus />
-        <ConnectHelper />
-        <HelpPanel />
-        {/* TODO: Call it overview or home */}
+        <h2>MongoDB</h2>
+        <div>
+          Navigate your databases and collections, use playgrounds for queries and aggregations
+          {/* TODO: Wording */}
+        </div>
+        <hr />
       </div>
     );
   }
@@ -41,4 +37,4 @@ const mapDispatchToProps: dispatchProps = {
   })
 };
 
-export default connect(() => ({}), mapDispatchToProps)(Overview);
+export default connect(() => ({}), mapDispatchToProps)(OverviewHeader);

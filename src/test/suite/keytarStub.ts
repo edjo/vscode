@@ -5,7 +5,7 @@ const retrievalDelay = 1; // ms simulated delay on keytar methods.
 export default class KeytarStub implements KeytarInterface {
   private _services: Map<string, Map<string, string>> = new Map<string, Map<string, string>>();
 
-  public async findCredentials(service: string): Promise<Array<KeytarCredential>> {
+  public async findCredentials(service: string): Promise<Array<KeytarCredential> | undefined> {
     await this.delay();
     const savedServices = this._services.get(service);
     if (savedServices) {
@@ -14,8 +14,6 @@ export default class KeytarStub implements KeytarInterface {
         password: savedServices.get(key) || ''
       }));
     }
-
-    return [];
   }
 
   public async getPassword(service: string, account: string): Promise<string | null> {

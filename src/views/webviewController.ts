@@ -34,7 +34,7 @@ export const getWebviewContent = (jsAppFileUrl: vscode.Uri, view: WEBVIEW_VIEWS)
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>MongoDB Extension</title>
+        <title>MongoDB</title>
     </head>
     <body>
       <div id="root"></div>
@@ -166,7 +166,7 @@ export default class WebviewController {
     // Create and show a new connect dialogue webview.
     const panel = vscode.window.createWebviewPanel(
       'connectDialogueWebview',
-      'MongoDB Extension', // Title
+      'MongoDB', // Title
       vscode.ViewColumn.One, // Editor column to show the webview panel in.
       {
         enableScripts: true,

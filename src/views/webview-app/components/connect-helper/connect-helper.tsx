@@ -1,11 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
-
 import { ActionTypes, LinkClickedAction } from '../../store/actions';
-import OverviewHeader from './overview-header';
-import ConnectHelper from '../connect-helper/connect-helper';
-import ConnectionStatus from '../connection-status/connection-status';
-import HelpPanel from '../help-panel/help-panel';
 
 const styles = require('../../connect.module.less');
 
@@ -15,19 +10,15 @@ type dispatchProps = {
 
 type props = dispatchProps;
 
-class Overview extends React.Component<props> {
+class ConnectHelper extends React.Component<props> {
   onLinkClicked = (screen: string, linkId: string): void => {
     this.props.onLinkClicked(screen, linkId);
   };
 
   render(): React.ReactNode {
     return (
-      <div className={styles.overview}>
-        <OverviewHeader />
-        <ConnectionStatus />
-        <ConnectHelper />
-        <HelpPanel />
-        {/* TODO: Call it overview or home */}
+      <div className={styles['connect-helper']}>
+        <h2>Connection Helper</h2>
       </div>
     );
   }
@@ -41,4 +32,4 @@ const mapDispatchToProps: dispatchProps = {
   })
 };
 
-export default connect(() => ({}), mapDispatchToProps)(Overview);
+export default connect(() => ({}), mapDispatchToProps)(ConnectHelper);
