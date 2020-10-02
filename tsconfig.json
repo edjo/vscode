@@ -4,7 +4,11 @@
     "noImplicitAny": false,
     "target": "es6",
     "outDir": "out",
-    "lib": ["es6", "dom"],
+    "lib": [
+      "es6",
+      "dom",
+      "ES2020.Promise"
+    ],
     "jsx": "react",
     "sourceMap": true,
     "rootDir": "src",

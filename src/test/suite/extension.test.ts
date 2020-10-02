@@ -26,6 +26,7 @@ suite('Extension Test Suite', () => {
       'mdb.createPlayground',
       'mdb.createNewPlaygroundFromViewAction',
       'mdb.createNewPlaygroundFromPlaygroundExplorer',
+      'mdb.openOverviewPage',
 
       // Tree view commands.
       'mdb.addConnection',
