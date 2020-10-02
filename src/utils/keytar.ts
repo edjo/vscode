@@ -15,7 +15,7 @@ export interface KeytarInterface {
    *
    * @returns A promise for the array of found credentials.
    */
-  findCredentials(service: string): Promise<Array<KeytarCredential>>;
+  findCredentials(service: string): Promise<Array<KeytarCredential> | undefined>;
 
   /**
    * Get the stored password for the service and account.
