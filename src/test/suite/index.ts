@@ -2,15 +2,12 @@ import * as Mocha from 'mocha';
 import * as glob from 'glob';
 import * as vscode from 'vscode';
 import path = require('path');
-import * as keytarType from 'keytar';
 
 import MDBExtensionController from '../../mdbExtensionController';
 import { ext } from '../../extensionConstants';
 import KeytarStub from './keytarStub';
 import { TestExtensionContext } from './stubs';
 import { mdbTestExtension } from './stubbableMdbExtension';
-
-type KeyTar = typeof keytarType;
 
 export function run(): Promise<void> {
   const reporterOptions = {
@@ -28,10 +25,10 @@ export function run(): Promise<void> {
 
   const testsRoot = path.join(__dirname, '..');
 
-  return new Promise((c, e) => {
+  return new Promise((resolve, reject) => {
     glob('**/**.test.js', { cwd: testsRoot }, (err, files) => {
       if (err) {
-        return e(err);
+        return reject(err);
       }
 
       // Activate the extension.
@@ -61,13 +58,13 @@ export function run(): Promise<void> {
             // Run the mocha test.
             mocha.run((failures) => {
               if (failures > 0) {
-                e(new Error(`${failures} tests failed.`));
-              } else {
-                c();
+                return reject(new Error(`${failures} tests failed.`));
               }
+
+              return resolve();
             });
           } catch (mochaRunErr) {
-            e(mochaRunErr);
+            return reject(mochaRunErr);
           }
         });
     });

@@ -5,14 +5,11 @@
   "tasks": [
     {
       "type": "npm",
-      "script": "build-dev",
+      "script": "watch",
       "problemMatcher": [
         "$tsc-watch"
       ],
-      // "isBackground": true,
-      "presentation": {
-        "reveal": "never"
-      },
+      "isBackground": true,
       "group": {
         "kind": "build",
         "isDefault": true // This is the `defaultBuildTask`.
